@@ -106,11 +106,10 @@ def get_plans(message):
 
 def finalize_channel(message, ch_id, ch_name):
     try:
-        raw_plans = message.text.split(',')
-        plans_dict = {}
-        for p in raw_plans:
-            t, pr = p.strip().split(':')
-            plans_dict[t] = pr
+       plans_dict= {
+           "10080":"89",
+           "43200":"199"
+       }
         
         channels_col.update_one({"channel_id": ch_id}, {"$set": {"name": ch_name, "plans": plans_dict, "admin_id": ADMIN_ID}}, upsert=True)
         bot_username = bot.get_me().username

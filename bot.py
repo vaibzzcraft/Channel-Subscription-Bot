@@ -106,7 +106,7 @@ def get_plans(message):
 
 def finalize_channel(message, ch_id, ch_name):
     try:
-        raw_plans = message.text.split(';')
+        raw_plans = message.text.split(',')
         plans_dict = {}
         for p in raw_plans:
             t, pr = p.strip().split(':')
